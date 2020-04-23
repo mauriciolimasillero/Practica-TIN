@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+
+    <p>Components</p>
+    <h1>Hola Mundo</h1>
+    
+    <h2>{{ mensaje }}</h2>
+    
+    <hr/>
+    
+    <cursos></cursos>
+    <br><br><br>
+    <hr/>
+    
+    <p>String Interpolation</p>
+    
+    <h1>Angular</h1>
+    <h2>{{ 'Mi nombre es: ' + getNombre() }}</h2>
+    
+    
+    <br><br><br>
+    <hr/>
+    
+    <p>Property Binding</p>
+    <img [src] ="imagenURL"><br/>
+    <button [disabled]= "botonStatus">Mi boton</button>
+    
+    
+    
+    <br><br><br>
+    <hr/>
+    
+    <p>Class Binding</p>
+    <button [class.activo]= "isActive">Mi boton</button>
+    
+    <br><br><br>
+    <hr/>
+    
+    <p>Style Binding</p>
+    <button [style.borderColor]= "isActive ? 'green' : 'white'">Mi boton</button>
+    
+    
+    <br><br><br>
+    <hr/>
+    
+    <p>Event Binding</p>
+    <button (mouseover) = "save($event)">Mi boton</button>
+    
+    
+    <br><br><br>
+    <hr/>
+    
+    <p>Event Flitering && Template variable</p>
+    <input type="text" (keyup.enter) = "onKeyUp(nombre.value)" #nombre/>
+    
+    <br><br><br>
+    <hr/>
+    
+    <p>15.- Two way Binding</p>
+    <input type="text" [(ngModel)] = "persona.nombre" #nombre/>
+    <p>{{persona.nombre}}</p>
+    
+    
+    <br><br><br>
+    <hr/>
+    
+    <p>16.- Servicios HTTP --- 17.- Dependency Injection</p>
+    <ul>
+        <li *ngFor="let persona of personas">
+            {{persona.Nombre}}
+        </li>
+    </ul>
+    
+    
+    <br><br><br>
+    <hr/>
+    
+    <p>18.- Reactive Forms</p>
+    
+ 
+        <form [formGroup]="miFormulario">
+            Usuario: <input [class.is-invalid]= "miFormulario.get('username').touched && miFormulario.get('username').invalid" 
+            type="text" class="form-control" formControlName = "username">
+            Password: <input [class.is-invalid]= "miFormulario.get('userpassword').touched && miFormulario.get('userpassword').invalid" 
+            type="password" class="form-control" formControlName = "userpassword">
+            <br>
+            <button class="btn btn-primary" type="submit">Enviar</button>
+        </form>
+        {{miFormulario.value | json}}
+
+
+        <br><br><br>
+        <hr/>
+        
+        <p>19.- ng-content - Content Projection && 20.- Slot Content Projection - SELECT</p>
+
+        <app-mensaje>
+            <h5>Hola mundo!</h5>
+            <button class="btn btn-secondary">Hazme Click</button>
+            <div>Este es un Div</div>
+            <p>Mensaje desde el componente App</p>
+        </app-mensaje>
+</body>
+</html>
+
+
+
+
+ 
